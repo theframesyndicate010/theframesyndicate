@@ -4,7 +4,7 @@ import PageHeader from '../components/PageHeader'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 const team = [
-  { name: 'Shantiram Meche', role: 'CEO & Founder', image: '/ceo.jpeg', socials: [{ icon: 'fab fa-linkedin-in' }, { icon: 'fab fa-twitter' }] },
+  { name: 'Shantiram Meche', role: 'CEO & Founder', image: 'ceo.jpeg', socials: [{ icon: 'fab fa-linkedin-in' }, { icon: 'fab fa-twitter' }] },
   { name: 'Sailesh Shahi', role: 'Managing Director/ Board Member', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400', socials: [{ icon: 'fab fa-linkedin-in' }, { icon: 'fab fa-twitter' }] },
  ]
 
