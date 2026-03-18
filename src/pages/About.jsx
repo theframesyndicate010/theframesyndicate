@@ -4,13 +4,22 @@ import PageHeader from '../components/PageHeader'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 const team = [
-{ 
-  name: 'Shantiram Meche', 
-  role: 'CEO & Founder', 
-  image: 'ceo.jpeg'
-},  { name: 'Sailesh Shahi', role: 'Managing Director/ Board Member', image: '', socials: [{ icon: 'fab fa-linkedin-in' }, { icon: 'fab fa-twitter' }] },
- ]
-
+  { 
+    name: 'Shantiram Meche', 
+    role: 'CEO & Founder', 
+    image: 'ceo.jpeg',
+    socials: [] // ✅ add this
+  },
+  { 
+    name: 'Sailesh Shahi', 
+    role: 'Managing Director/ Board Member', 
+    image: '', 
+    socials: [
+      { icon: 'fab fa-linkedin-in' }, 
+      { icon: 'fab fa-twitter' }
+    ] 
+  },
+]
 const timeline = [
   { year: '2020', title: 'The Beginning', desc: 'Frame Syndicate was founded with a vision to revolutionize IT solutions.' },
   { year: '2021', title: 'First Major Client', desc: 'Secured our first major client, marking a significant milestone.' },
