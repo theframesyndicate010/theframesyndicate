@@ -4,11 +4,9 @@ import PageHeader from '../components/PageHeader'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 const team = [
-  { name: 'Alexander Mitchell', role: 'CEO & Founder', image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400', socials: [{ icon: 'fab fa-linkedin-in' }, { icon: 'fab fa-twitter' }] },
-  { name: 'Sarah Chen', role: 'Chief Technology Officer', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400', socials: [{ icon: 'fab fa-linkedin-in' }, { icon: 'fab fa-twitter' }] },
-  { name: 'Michael Rodriguez', role: 'Chief Operations Officer', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400', socials: [{ icon: 'fab fa-linkedin-in' }, { icon: 'fab fa-twitter' }] },
-  { name: 'Emily Davidson', role: 'Head of Design', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400', socials: [{ icon: 'fab fa-linkedin-in' }, { icon: 'fab fa-dribbble' }] },
-]
+  { name: 'Shantiram Meche', role: 'CEO & Founder', image: '/ceo.jpeg', socials: [{ icon: 'fab fa-linkedin-in' }, { icon: 'fab fa-twitter' }] },
+  { name: 'Sailesh Shahi', role: 'Managing Director/ Board Member', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400', socials: [{ icon: 'fab fa-linkedin-in' }, { icon: 'fab fa-twitter' }] },
+ ]
 
 const timeline = [
   { year: '2020', title: 'The Beginning', desc: 'Frame Syndicate was founded with a vision to revolutionize IT solutions.' },
