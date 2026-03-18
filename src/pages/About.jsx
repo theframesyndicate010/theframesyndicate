@@ -2,22 +2,19 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
 import useScrollReveal from '../hooks/useScrollReveal'
+import ceoImage from '../ceo.jpeg'
 
 const team = [
   { 
     name: 'Shantiram Meche', 
     role: 'CEO & Founder', 
-    image: 'ceo.jpeg',
-    socials: [] // ✅ add this
+    image: ceo.jpeg
   },
   { 
     name: 'Sailesh Shahi', 
     role: 'Managing Director/ Board Member', 
     image: '', 
-    socials: [
-      { icon: 'fab fa-linkedin-in' }, 
-      { icon: 'fab fa-twitter' }
-    ] 
+   
   },
 ]
 const timeline = [
