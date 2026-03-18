@@ -437,7 +437,7 @@ body:hover .cursor-follower {
 }
 
 .logo-img {
-    height: 45px;
+    height: 75px;
     width: auto;
 }
 
@@ -1458,7 +1458,7 @@ body:hover .cursor-follower {
 }
 
 .footer-brand .logo-img {
-    filter: brightness(0) invert(1);
+    opacity: 1;
 }
 
 .footer-brand .logo-text {

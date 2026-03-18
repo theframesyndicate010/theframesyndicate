@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <Link to="/" className="logo">
-              <img src="/logo.png" alt="The Frame Syndicate" className="logo-img" />
+              <img src="/pogo.jpeg" alt="The Frame Syndicate" className="logo-img" />
               <div className="logo-text-block">
                 <span className="slogan">&quot;Frame your ideas with our software&quot;</span>
                 <span className="logo-text-name">

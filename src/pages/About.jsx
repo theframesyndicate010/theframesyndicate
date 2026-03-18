@@ -2,13 +2,12 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
 import useScrollReveal from '../hooks/useScrollReveal'
-import ceoImage from '../ceo.jpeg'
 
 const team = [
   { 
     name: 'Shantiram Meche', 
     role: 'CEO & Founder', 
-    image: ceoImage,
+    image: '/ceo.jpeg',
     socials: []
   },
   { 

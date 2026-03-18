@@ -62,7 +62,7 @@ export default function Navbar() {
         <div className="nav-container">
           <div className="logo-wrapper">
             <Link to="/" className="logo">
-              <img src="/logo.png" alt="The Frame Syndicate" className="logo-img" />
+              <img src="/pogo.jpeg" alt="The Frame Syndicate" className="logo-img" />
               <div className="logo-text-block">
                 <span className="slogan">&quot;Frame your ideas with our software&quot;</span>
                 <span className="logo-text-name">
