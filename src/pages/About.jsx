@@ -8,13 +8,14 @@ const team = [
   { 
     name: 'Shantiram Meche', 
     role: 'CEO & Founder', 
-    image: ceo.jpeg
+    image: ceoImage,
+    socials: []
   },
   { 
     name: 'Sailesh Shahi', 
     role: 'Managing Director/ Board Member', 
     image: '', 
-   
+    socials: []
   },
 ]
 const timeline = [
