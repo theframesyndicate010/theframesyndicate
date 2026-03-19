@@ -23,11 +23,11 @@ const tabContent = {
 }
 
 const awards = [
-  { icon: 'fas fa-trophy', count: '50+', text: 'Projects' },
+  { icon: 'fas fa-trophy', count: '10+', text: 'Projects' },
   { icon: 'fas fa-star', count: '5.0', text: 'Rating' },
   { icon: 'fas fa-award', count: 'Multiple', text: 'Awarded' },
   { icon: 'fas fa-certificate', count: 'Certified', text: 'Experts' },
-  { icon: 'fas fa-users', count: '100+', text: 'Clients' },
+  { icon: 'fas fa-users', count: '10+', text: 'Clients' },
 ]
 
 const services = [
@@ -47,7 +47,7 @@ const workItems = [
 ]
 
 const statsData = [
-  { target: 150, suffix: '', label: 'Projects Delivered' },
+  { target: 10, suffix: '', label: 'Projects Delivered' },
   { target: 98, suffix: '%', label: 'Client Satisfaction' },
   { target: 7, suffix: '+', label: 'Team Experts' },
   { target: 3, suffix: '', label: 'Years Experience' },
@@ -235,7 +235,7 @@ export default function Home() {
               <h3 className="features-title">{tabContent[activeTab].title}</h3>
               <p className="features-text">{tabContent[activeTab].text}</p>
               <div className="features-badges">
-                <div className="badge"><i className="fas fa-check-circle"></i><span>ISO Certified</span></div>
+                <div className="badge"><i className="fas fa-check-circle"></i><span>IRD Certified</span></div>
                 <div className="badge"><i className="fas fa-shield-alt"></i><span>SOC 2 Compliant</span></div>
                 <div className="badge"><i className="fas fa-award"></i><span>Award Winner</span></div>
               </div>

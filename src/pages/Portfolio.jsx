@@ -26,7 +26,7 @@ const filters = [
 
 const statsData = [
   { target: 98, suffix: '%', label: 'Client Satisfaction' },
-  { target: 150, suffix: '', label: 'Projects Completed' },
+  { target: 10, suffix: '', label: 'Projects Completed' },
   { target: 2, suffix: '+', label: 'Countries Served' },
 ]
 

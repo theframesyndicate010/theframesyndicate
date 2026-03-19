@@ -58,7 +58,7 @@ export default function About() {
               <span className="section-tag"><span className="tag-dot"></span> Who We Are</span>
               <h2 className="section-title">A Team of Passionate <span className="highlight">Innovators</span></h2>
               <p className="intro-text">
-                Founded in 2014, Frame Syndicate has grown from a small startup to a global IT solutions
+                Founded in 2020, Frame Syndicate has grown from a small startup to a global IT solutions
                 powerhouse. We&apos;re a team of engineers, designers, strategists, and dreamers who believe
                 technology should empower businesses, not complicate them.
               </p>
@@ -73,7 +73,7 @@ export default function About() {
                   <span className="stat-text">Years Experience</span>
                 </div>
                 <div className="intro-stat">
-                  <span className="stat-num">50+</span>
+                  <span className="stat-num">10+</span>
                   <span className="stat-text">Clients Served</span>
                 </div>
                 <div className="intro-stat">
