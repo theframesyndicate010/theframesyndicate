@@ -1134,7 +1134,6 @@ body:hover .cursor-follower {
 
 .stat-item {
     display: flex;
-    flex-direction: column;
     align-items: center;
 }
 
