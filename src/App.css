@@ -592,6 +592,8 @@ body:hover .cursor-follower {
 
     .logo-text-name {
         font-size: 1rem;
+        display: block;
+        max-width: 11.5rem;
         overflow: hidden;
         text-overflow: ellipsis;
     }
@@ -669,16 +671,46 @@ body:hover .cursor-follower {
 
     .logo-text-name {
         font-size: 0.92rem;
+        max-width: 9.8rem;
     }
 }
 
 @media (max-width: 360px) {
-    .logo-text-block {
-        display: none;
+    .nav-container {
+        padding: 0 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .nav-right {
+        gap: 0.35rem;
+    }
+
+    .dot-menu-btn {
+        padding: 0.25rem;
+    }
+
+    .dot-grid {
+        grid-template-columns: repeat(3, 4px);
+        grid-template-rows: repeat(3, 4px);
+        gap: 2.5px;
+    }
+
+    .dot-grid .dot {
+        width: 4px;
+        height: 4px;
     }
 
     .logo-img {
-        height: 42px;
+        height: 40px;
+    }
+
+    .logo-text-block {
+        margin-left: 6px;
+    }
+
+    .logo-text-name {
+        font-size: 0.82rem;
+        max-width: 7.8rem;
     }
 }
 
