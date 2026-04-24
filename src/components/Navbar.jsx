@@ -49,6 +49,23 @@ export default function Navbar() {
     return () => document.removeEventListener('keydown', handleEscape)
   }, [mobileOpen])
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 992 && mobileOpen) {
+        closeMobile()
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [mobileOpen])
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [])
+
   const navClass = `navbar${scrolled || !isHome ? ' scrolled' : ''}`
 
   return (
@@ -94,7 +111,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <div className={`mobile-menu${mobileOpen ? ' active' : ''}`} role="dialog" aria-label="Mobile navigation">
+      <div className={`mobile-menu${mobileOpen ? ' active' : ''}`} role="dialog" aria-label="Mobile navigation" aria-modal="true">
         <div className="mobile-menu-content">
           <ul className="mobile-nav-links" role="list">
             <li><Link to="/" onClick={closeMobile}>Home</Link></li>
