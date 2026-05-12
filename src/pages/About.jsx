@@ -4,16 +4,16 @@ import PageHeader from '../components/PageHeader'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 const team = [
-  { 
-    name: 'Shantiram Meche', 
-    role: 'CEO & Founder', 
+  {
+    name: 'Shantiram Meche',
+    role: 'CEO & Founder',
     image: '/ceo.jpeg',
     socials: []
   },
-  { 
-    name: 'Sailesh Shahi', 
-    role: 'Managing Director/ Board Member', 
-    image: '', 
+  {
+    name: 'Sailesh Shahi',
+    role: 'Managing Director/ Board Member',
+    image: '',
     socials: []
   },
 ]
