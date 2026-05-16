@@ -37,12 +37,12 @@ const awardsData = [
 ]
 
 export default function About() {
-  const introRef = useScrollReveal()
-  const missionRef = useScrollReveal()
-  const teamRef = useScrollReveal()
-  const timelineRef = useScrollReveal()
-  const awardsRef = useScrollReveal()
-  const ctaRef = useScrollReveal()
+  const introRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
+  const missionRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
+  const teamRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
+  const timelineRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
+  const awardsRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
+  const ctaRef = useScrollReveal({ reveal: 'fade-up' })
 
   return (
     <>
@@ -54,7 +54,7 @@ export default function About() {
       <section className="about-intro" ref={introRef}>
         <div className="container">
           <div className="intro-grid">
-            <div className="intro-content">
+            <div className="intro-content" data-reveal-item>
               <span className="section-tag"><span className="tag-dot"></span> Who We Are</span>
               <h2 className="section-title">A Team of Passionate <span className="highlight">Innovators</span></h2>
               <p className="intro-text">
@@ -68,21 +68,21 @@ export default function About() {
                 and achieve remarkable growth.
               </p>
               <div className="intro-stats">
-                <div className="intro-stat">
+                <div className="intro-stat" data-reveal-item>
                   <span className="stat-num">3+</span>
                   <span className="stat-text">Years Experience</span>
                 </div>
-                <div className="intro-stat">
+                <div className="intro-stat" data-reveal-item>
                   <span className="stat-num">10+</span>
                   <span className="stat-text">Clients Served</span>
                 </div>
-                <div className="intro-stat">
+                <div className="intro-stat" data-reveal-item>
                   <span className="stat-num">2+</span>
                   <span className="stat-text">Countries</span>
                 </div>
               </div>
             </div>
-            <div className="intro-image">
+            <div className="intro-image" data-reveal="scale-blur" data-reveal-item>
               <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600" alt="Our Team" />
               <div className="image-accent"></div>
             </div>
@@ -150,7 +150,7 @@ export default function About() {
           </div>
           <div className="timeline">
             {timeline.map((item, i) => (
-              <div key={i} className="timeline-item">
+              <div key={i} className="timeline-item" data-reveal="clip" data-reveal-item>
                 <div className="timeline-marker"></div>
                 <div className="timeline-content">
                   <span className="timeline-year">{item.year}</span>
@@ -189,7 +189,7 @@ export default function About() {
           <div className="cta-blob cta-blob-2"></div>
         </div>
         <div className="container">
-          <div className="cta-content">
+          <div className="cta-content" data-reveal="scale-blur">
             <h2 className="cta-title">Ready to Work<br />With Us?</h2>
             <p className="cta-text">Let&apos;s build something amazing together.</p>
             <Link to="/contact" className="btn btn-light">Get In Touch</Link>

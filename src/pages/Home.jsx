@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import useScrollReveal from '../hooks/useScrollReveal'
 import TestimonialSlider from '../components/TestimonialSlider'
 import TrustSection from '../components/TrustSection'
+import HorizontalScroll from '../components/HorizontalScroll'
+import PortfolioStack from '../components/PortfolioStack'
 
 
 const aboutPoints = [
@@ -32,53 +34,6 @@ const services = [
   { image: 'https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=500', alt: 'SEO Services', tags: ['SEO', 'Marketing'], title: 'SEO Services', desc: 'Expert search engine optimization to boost your online visibility and drive organic growth.' },
 ]
 
-const workItems = [
-  {
-    image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600',
-    alt: 'Global Finance Platform',
-    category: 'Enterprise',
-    title: 'Global Finance Platform',
-    summary: 'Cloud-native core banking platform with real-time risk insights.',
-    tags: ['Cloud', 'Fintech'],
-    className: 'work-item work-large',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400',
-    alt: 'Retail Innovation',
-    category: 'E-commerce',
-    title: 'Retail Innovation',
-    summary: 'Omnichannel commerce stack with personalization and inventory sync.',
-    tags: ['E-commerce', 'Growth'],
-    className: 'work-item',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?w=400',
-    alt: 'MedTech Solutions',
-    category: 'Healthcare',
-    title: 'MedTech Solutions',
-    summary: 'Secure patient portal with telehealth scheduling and insights.',
-    tags: ['Healthcare', 'UX'],
-    className: 'work-item',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400',
-    alt: 'Smart City Network',
-    category: 'IoT',
-    title: 'Smart City Network',
-    summary: 'Sensor network with predictive analytics and fleet monitoring.',
-    tags: ['IoT', 'Analytics'],
-    className: 'work-item',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=600',
-    alt: 'Innovation Hub',
-    category: 'Startup',
-    title: 'Innovation Hub',
-    summary: 'Product platform that scaled from MVP to nationwide launch.',
-    tags: ['Startup', 'Product'],
-    className: 'work-item work-wide',
-  },
-]
 
 const statsData = [
   { target: 10, suffix: '', label: 'Projects Delivered' },
@@ -88,16 +43,20 @@ const statsData = [
 ]
 
 export default function Home() {
-  const aboutRef = useScrollReveal()
-  const servicesRef = useScrollReveal()
-  const workRef = useScrollReveal()
-  const ctaRef = useScrollReveal()
-  const contactRef = useScrollReveal()
+  const heroRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
+  const aboutRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
+
+  const contactRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
 
   // Stats counter
   const [counts, setCounts] = useState(statsData.map(() => 0))
   const statsRef = useRef(null)
+  const statsRevealRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
   const statsAnimated = useRef(false)
+  const setStatsRefs = (node) => {
+    statsRef.current = node
+    statsRevealRef.current = node
+  }
 
   useEffect(() => {
     const el = statsRef.current
@@ -159,9 +118,9 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="hero hero-classic" id="hero">
+      <section className="hero hero-classic" id="hero" ref={heroRef}>
         <div className="hero-media" aria-hidden="true">
-          <div className="hero-video">
+          <div className="hero-video" data-reveal="mask" data-reveal-item>
             <video autoPlay muted loop playsInline preload="auto">
               <source
                 src="https://cdn.pixabay.com/video/2026/04/22/348116_large.mp4"
@@ -172,7 +131,7 @@ export default function Home() {
           <div className="hero-overlay"></div>
         </div>
         <div className="container">
-          <div className="hero-classic-content">
+          <div className="hero-classic-content" data-reveal="scale-blur" data-reveal-item>
             <span className="hero-topline">Optimize IT Systems</span>
             <h1 className="hero-title">
               Building Digital <span className="highlight">Solutions</span><br />
@@ -197,7 +156,7 @@ export default function Home() {
         <div className="container">
           <div className="about-showcase-shell">
             <div className="about-showcase-grid">
-              <div className="about-showcase-media">
+              <div className="about-showcase-media" data-reveal="parallax" data-parallax-intensity="22" data-reveal-item>
                 <img
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900"
                   alt="Engineering team collaboration"
@@ -216,7 +175,7 @@ export default function Home() {
                   <span className="about-showcase-stat-label">Overall happy Customers</span>
                 </div>
               </div>
-              <div className="about-showcase-content">
+              <div className="about-showcase-content" data-reveal-item>
                 <span className="about-showcase-tag">About Us</span>
                 <h2 className="about-showcase-title">Scaling Engineering Teams for Growing IT Companies</h2>
                 <p className="about-showcase-text">
@@ -252,70 +211,46 @@ export default function Home() {
 
       <TrustSection />
 
-      {/* Services Section */}
-      <section className="services-section" id="services" ref={servicesRef}>
-        <div className="container">
-          <div className="section-header">
-            <span className="section-tag"><span className="tag-dot"></span> What We Do Best</span>
-            <h2 className="section-title-large">Creating digital products &amp;<br />experiences</h2>
-          </div>
-          <div className="services-grid">
-            {services.map((s, i) => (
-              <div key={i} className="service-card">
-                <div className="service-image">
-                  <img src={s.image} alt={s.alt} loading="lazy" />
-                  <div className="service-tags">
-                    {s.tags.map((tag, j) => <span key={j} className="service-tag">{tag}</span>)}
-                  </div>
-                </div>
-                <h3 className="service-title">{s.title}</h3>
-                <p className="service-description">{s.desc}</p>
+      {/* Services Section — Horizontal Scroll */}
+      <HorizontalScroll
+        sectionTag="What We Do Best"
+        sectionTitle={
+          <h2 className="section-title-large">
+            Creating digital products &amp;<br />experiences
+          </h2>
+        }
+      >
+        {services.map((s, i) => (
+          <div key={i} className="hz-card">
+            <div className="hz-card-number">{String(i + 1).padStart(2, '0')}</div>
+            <div className="service-image">
+              <img src={s.image} alt={s.alt} loading="lazy" />
+              <div className="service-tags">
+                {s.tags.map((tag, j) => (
+                  <span key={j} className="service-tag">{tag}</span>
+                ))}
               </div>
-            ))}
+            </div>
+            <div className="hz-card-body">
+              <h3 className="service-title">{s.title}</h3>
+              <p className="service-description">{s.desc}</p>
+              <Link to="/services" className="hz-card-link">
+                Learn More <i className="fas fa-arrow-right"></i>
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        ))}
+      </HorizontalScroll>
 
-      {/* Work Section */}
-      <section className="work-section" id="work" ref={workRef}>
-        <div className="container">
-          <div className="work-header">
-            <div className="work-heading">
-              <span className="section-tag"><span className="tag-dot"></span> Our Portfolio</span>
-              <h2 className="section-title-large">Our<br />Portfolio</h2>
-              <p className="work-subtitle">A curated selection of projects built for speed, scale, and measurable impact.</p>
-            </div>
-            <div className="work-actions">
-              <Link to="/portfolio" className="btn btn-outline-dark">View All Projects</Link>
-            </div>
-          </div>
-          <div className="work-grid">
-            {workItems.map((w, i) => (
-              <div key={i} className={w.className}>
-                <img src={w.image} alt={`${w.category} ${w.title}`} loading="lazy" />
-                <div className="work-overlay">
-                  <span className="work-category">{w.category}</span>
-                  <h3 className="work-title">{w.title}</h3>
-                  <p className="work-summary">{w.summary}</p>
-                  <div className="work-tags">
-                    {w.tags.map((tag, j) => (
-                      <span key={j} className="work-tag">{tag}</span>
-                    ))}
-                  </div>
-                  <Link to="/portfolio" className="work-link">View Case Study <i className="fas fa-arrow-right"></i></Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Portfolio — Stacking Scroll Animation */}
+      <PortfolioStack />
 
       {/* Stats Section */}
-      <section className="stats-section" ref={statsRef}>
+      <section className="stats-section" ref={setStatsRefs}>
         <div className="container">
           <div className="stats-grid">
             {statsData.map((s, i) => (
-              <div key={i} className="stat-item">
+              <div key={i} className="stat-item" data-reveal-item>
                 <span className="stat-number">{counts[i]}</span>
                 {s.suffix && <span className="stat-suffix">{s.suffix}</span>}
                 <span className="stat-label">{s.label}</span>
@@ -328,22 +263,11 @@ export default function Home() {
       {/* Testimonials */}
       <TestimonialSlider />
 
-      {/* CTA Section */}
-      <section className="cta-section" ref={ctaRef}>
-        <div className="container">
-          <div className="cta-content">
-            <h2 className="cta-title">Ready to Transform<br />Your Business?</h2>
-            <p className="cta-text">Let&apos;s discuss how we can help you achieve your digital goals.</p>
-            <a href="#contact" className="btn btn-light" onClick={(e) => scrollToSection(e, 'contact')}>Get Started Today</a>
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
       <section className="contact-section" id="contact" ref={contactRef}>
         <div className="container">
           <div className="contact-grid">
-            <div className="contact-info">
+            <div className="contact-info" data-reveal-item>
               <span className="section-tag"><span className="tag-dot"></span> Get In Touch</span>
               <h2 className="section-title-large">Let&apos;s Start<br />A Project</h2>
               <p className="contact-text">
@@ -363,7 +287,7 @@ export default function Home() {
                 <a href="#" className="social-link"><i className="fab fa-instagram"></i></a>
               </div>
             </div>
-            <div className="contact-form-wrapper">
+            <div className="contact-form-wrapper" data-reveal-item>
               <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <input type="text" name="name" placeholder="Your Name" required value={formData.name} onChange={handleChange} />

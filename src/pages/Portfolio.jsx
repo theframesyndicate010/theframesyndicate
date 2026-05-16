@@ -32,13 +32,18 @@ const statsData = [
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState('all')
-  const gridRef = useScrollReveal()
-  const ctaRef = useScrollReveal()
+  const gridRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
+  const ctaRef = useScrollReveal({ reveal: 'fade-up' })
 
   // Stats counter
   const [counts, setCounts] = useState(statsData.map(() => 0))
   const statsRef = useRef(null)
+  const statsRevealRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
   const statsAnimated = useRef(false)
+  const setStatsRefs = (node) => {
+    statsRef.current = node
+    statsRevealRef.current = node
+  }
 
   useEffect(() => {
     const el = statsRef.current
@@ -97,7 +102,7 @@ export default function Portfolio() {
         <div className="container">
           <div className="portfolio-grid">
             {filtered.map((p, i) => (
-              <div key={i} className="portfolio-item" data-category={p.category}>
+              <div key={i} className="portfolio-item" data-category={p.category} data-reveal="clip" data-reveal-item>
                 <div className="portfolio-image">
                   <img src={p.image} alt={p.title} loading="lazy" />
                   <div className="portfolio-overlay">
@@ -114,11 +119,11 @@ export default function Portfolio() {
       </section>
 
       {/* Stats Banner */}
-      <section className="stats-section portfolio-stats" ref={statsRef}>
+      <section className="stats-section portfolio-stats" ref={setStatsRefs}>
         <div className="container">
           <div className="stats-grid">
             {statsData.map((s, i) => (
-              <div key={i} className="stat-item">
+              <div key={i} className="stat-item" data-reveal-item>
                 <span className="stat-number">{counts[i]}</span>
                 {s.suffix && <span className="stat-suffix">{s.suffix}</span>}
                 <span className="stat-label">{s.label}</span>
@@ -138,7 +143,7 @@ export default function Portfolio() {
           <div className="cta-blob cta-blob-2"></div>
         </div>
         <div className="container">
-          <div className="cta-content">
+          <div className="cta-content" data-reveal="scale-blur">
             <h2 className="cta-title">Have a Project<br />In Mind?</h2>
             <p className="cta-text">Let&apos;s create something amazing together.</p>
             <Link to="/contact" className="btn btn-light">Start Your Project</Link>

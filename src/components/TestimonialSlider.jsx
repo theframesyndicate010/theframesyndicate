@@ -6,6 +6,14 @@ const testimonials = [
     name: 'Digivents',
     role: 'Client',
     link: 'https://digivents.com.np/', 
+    image: '',
+  },
+  {
+    text: '"AsanNepal.com saw faster load times, cleaner UX, and measurable growth after working with Frame Syndicate. Clear communication and strong execution throughout."',
+    name: 'AsanNepal',
+    role: 'Client',
+    link: 'https://asannepal.com/',
+    image: '',
   },
 ]
 

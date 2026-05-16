@@ -71,10 +71,10 @@ const processSteps = [
 ]
 
 export default function Services() {
-  const overviewRef = useScrollReveal()
-  const techRef = useScrollReveal()
-  const processRef = useScrollReveal()
-  const ctaRef = useScrollReveal()
+  const overviewRef = useScrollReveal({ reveal: 'fade-up' })
+  const techRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
+  const processRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
+  const ctaRef = useScrollReveal({ reveal: 'fade-up' })
 
   return (
     <>
@@ -85,7 +85,7 @@ export default function Services() {
       {/* Overview */}
       <section className="services-overview" ref={overviewRef}>
         <div className="container">
-          <div className="overview-content">
+          <div className="overview-content" data-reveal-item>
             <span className="section-tag"><span className="tag-dot"></span> What We Offer</span>
             <h2 className="section-title">End-to-End Technology <span className="highlight">Solutions</span></h2>
             <p className="overview-text">
@@ -130,7 +130,7 @@ export default function Services() {
           </div>
           <div className="tech-grid">
             {techStack.map((tech, i) => (
-              <div key={i} className="tech-item">
+              <div key={i} className="tech-item" data-reveal-item>
                 <i className={tech.icon}></i>
                 <span>{tech.name}</span>
               </div>
@@ -149,7 +149,7 @@ export default function Services() {
           <div className="process-grid">
             {processSteps.map((step, i) => (
               <Fragment key={i}>
-                <div className="process-step">
+                <div className="process-step" data-reveal-item>
                   <div className="process-icon"><span>{step.num}</span></div>
                   <h4>{step.title}</h4>
                   <p>{step.desc}</p>
@@ -168,7 +168,7 @@ export default function Services() {
           <div className="cta-blob cta-blob-2"></div>
         </div>
         <div className="container">
-          <div className="cta-content">
+          <div className="cta-content" data-reveal="scale-blur">
             <h2 className="cta-title">Ready to Transform<br />Your Business?</h2>
             <p className="cta-text">Let&apos;s discuss how we can help you achieve your goals.</p>
             <Link to="/contact" className="btn btn-light">Start Your Project</Link>

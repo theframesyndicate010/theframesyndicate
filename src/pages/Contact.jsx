@@ -19,10 +19,10 @@ const faqData = [
 ]
 
 export default function Contact() {
-  const formRef = useScrollReveal()
-  const mapRef = useScrollReveal()
-  const faqRef = useScrollReveal()
-  const ctaRef = useScrollReveal()
+  const formRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
+  const mapRef = useScrollReveal({ reveal: 'fade-up' })
+  const faqRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
+  const ctaRef = useScrollReveal({ reveal: 'fade-up' })
 
   const [formData, setFormData] = useState({
     firstName: '', lastName: '', email: '', phone: '',
@@ -59,7 +59,7 @@ export default function Contact() {
             {/* Info Cards */}
             <div className="contact-info-block">
               {infoCards.map((card, i) => (
-                <div key={i} className="info-card">
+                <div key={i} className="info-card" data-reveal-item>
                   <div className="info-icon"><i className={card.icon}></i></div>
                   <div className="info-content">
                     <h4>{card.title}</h4>
@@ -67,7 +67,7 @@ export default function Contact() {
                   </div>
                 </div>
               ))}
-              <div className="social-block">
+              <div className="social-block" data-reveal-item>
                 <h4>Follow Us</h4>
                 <div className="social-links">
                   <a href="#" className="social-link"><i className="fab fa-linkedin-in"></i></a>
@@ -79,7 +79,7 @@ export default function Contact() {
             </div>
 
             {/* Form */}
-            <div className="contact-form-block">
+            <div className="contact-form-block" data-reveal-item>
               <div className="form-header">
                 <h3>Send Us a Message</h3>
                 <p>Fill out the form below and we&apos;ll get back to you within 24 hours.</p>
@@ -155,7 +155,7 @@ export default function Contact() {
       {/* Map */}
       <section className="map-section" ref={mapRef}>
         <div className="container">
-          <div className="map-wrapper">
+          <div className="map-wrapper" data-reveal="mask">
             <div className="map-overlay">
               <h3>Our Office</h3>
               <p>Located in Birtamode and Dhulabari, Jhapa, Nepal. We&apos;re always ready to meet.</p>
@@ -208,7 +208,7 @@ export default function Contact() {
           </div>
           <div className="faq-grid">
             {faqData.map((faq, i) => (
-              <div key={i} className={`faq-item${openFaq === i ? ' active' : ''}`}>
+              <div key={i} className={`faq-item${openFaq === i ? ' active' : ''}`} data-reveal-item>
                 <button className="faq-question" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
                   <span>{faq.q}</span>
                   <i className={`fas fa-${openFaq === i ? 'minus' : 'plus'}`}></i>
@@ -229,7 +229,7 @@ export default function Contact() {
           <div className="cta-blob cta-blob-2"></div>
         </div>
         <div className="container">
-          <div className="cta-content">
+          <div className="cta-content" data-reveal="scale-blur">
             <h2 className="cta-title">Ready to Start<br />Your Project?</h2>
             <p className="cta-text">Schedule a free consultation with our experts.</p>
             <a href="mailto:theframesyndicate@gmail.com" className="btn btn-light">
