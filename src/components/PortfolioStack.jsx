@@ -61,50 +61,52 @@ export default function PortfolioStack() {
     if (isMobile) return
 
     const ctx = gsap.context(() => {
-      // Each card after the first starts off-screen below
+      // Consistent initial states for smooth cross-fade
       cards.forEach((card, i) => {
-        if (i === 0) return
-        gsap.set(card, { yPercent: 100 })
+        gsap.set(card, {
+          yPercent: i === 0 ? 0 : 100,
+          opacity: i === 0 ? 1 : 0,
+          scale: 1,
+          filter: 'brightness(1)',
+        })
       })
 
       // Create a timeline scrubbed by scroll
       const tl = gsap.timeline({
+        defaults: { duration: 1, ease: 'power2.out' },
         scrollTrigger: {
           trigger: wrapper,
           start: 'top top',
           end: 'bottom bottom',
-          scrub: 0.5,
+          scrub: 0.8,
+          invalidateOnRefresh: true,
           // No pin needed — the wrapper's height + sticky CSS handles it
         },
       })
 
       // For each card after the first, animate it sliding up into view
-      // and scale/dim the previous card
+      // and scale/dim the previous card with a soft cross-fade
       for (let i = 1; i < totalCards; i++) {
         const cardIn = cards[i]
         const cardOut = cards[i - 1]
 
-        // Slide new card up from below
         tl.to(
           cardIn,
           {
             yPercent: 0,
-            duration: 1,
-            ease: 'power2.inOut',
+            opacity: 1,
           },
-          i - 1 // sequence them one after another
+          i - 1
         )
 
-        // Scale down + darken previous card simultaneously
         tl.to(
           cardOut,
           {
-            scale: 0.9,
-            filter: 'brightness(0.4)',
-            duration: 1,
-            ease: 'power2.inOut',
+            scale: 0.92,
+            opacity: 0.6,
+            filter: 'brightness(0.45)',
           },
-          i - 1 // same position as the card coming in
+          i - 1
         )
       }
     }, wrapper)
@@ -129,9 +131,7 @@ export default function PortfolioStack() {
                 <span className="section-tag">
                   <span className="tag-dot"></span> Our Portfolio
                 </span>
-                <h2 className="section-title-large">
-                  Our<br />Portfolio
-                </h2>
+                <h2 className="section-title-large">Our Portfolio</h2>
                 <p className="portfolio-stack-subtitle">
                   A curated selection of projects built for speed, scale, and measurable impact.
                 </p>

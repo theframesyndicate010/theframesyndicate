@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
 import useScrollReveal from '../hooks/useScrollReveal'
@@ -15,6 +14,37 @@ const team = [
     role: 'Managing Director/ Board Member',
     image: '',
     socials: []
+  },
+]
+
+const aboutPoints = [
+  'Strategy-led delivery with clear milestones',
+  'Full-stack engineering and design expertise',
+  'Security-first, performance-focused builds',
+]
+
+const aboutHighlights = [
+  { icon: 'fas fa-briefcase', title: '3+ Years', text: 'Proven experience in product delivery.' },
+  { icon: 'fas fa-users', title: '10+ Clients', text: 'Trusted by growing companies.' },
+  { icon: 'fas fa-globe', title: '2+ Countries', text: 'Serving teams across regions.' },
+  { icon: 'fas fa-rocket', title: 'Growth Ready', text: 'Systems designed to scale.' },
+]
+
+const valuePillars = [
+  {
+    icon: 'fas fa-bullseye',
+    title: 'Our Mission',
+    text: 'Empower businesses with technology that drives measurable growth and efficiency.'
+  },
+  {
+    icon: 'fas fa-eye',
+    title: 'Our Vision',
+    text: 'Be the most trusted technology partner for ambitious companies worldwide.'
+  },
+  {
+    icon: 'fas fa-heart',
+    title: 'Our Values',
+    text: 'Innovation, integrity, and collaboration guide every engagement.'
   },
 ]
 const timeline = [
@@ -50,113 +80,124 @@ export default function About() {
         About <span className="highlight">Us</span>
       </PageHeader>
 
-      {/* About Intro */}
-      <section className="about-intro" ref={introRef}>
+      {/* About Showcase */}
+      <section className="about-showcase about-showcase-alt" ref={introRef}>
         <div className="container">
-          <div className="intro-grid">
-            <div className="intro-content" data-reveal-item>
-              <span className="section-tag"><span className="tag-dot"></span> Who We Are</span>
-              <h2 className="section-title">A Team of Passionate <span className="highlight">Innovators</span></h2>
-              <p className="intro-text">
-                Founded in 2020, Frame Syndicate has grown from a small startup to a global IT solutions
-                powerhouse. We&apos;re a team of engineers, designers, strategists, and dreamers who believe
-                technology should empower businesses, not complicate them.
-              </p>
-              <p className="intro-text">
-                Our journey began with a simple idea: create technology solutions that truly make a difference.
-                Since 2020, we&apos;ve helped numerous businesses transform their digital presence
-                and achieve remarkable growth.
-              </p>
-              <div className="intro-stats">
-                <div className="intro-stat" data-reveal-item>
-                  <span className="stat-num">3+</span>
-                  <span className="stat-text">Years Experience</span>
-                </div>
-                <div className="intro-stat" data-reveal-item>
-                  <span className="stat-num">10+</span>
-                  <span className="stat-text">Clients Served</span>
-                </div>
-                <div className="intro-stat" data-reveal-item>
-                  <span className="stat-num">2+</span>
-                  <span className="stat-text">Countries</span>
+          <div className="about-showcase-shell">
+            <div className="about-showcase-grid">
+              <div className="about-showcase-content" data-reveal-item>
+                <span className="about-showcase-tag">Who We Are</span>
+                <h2 className="about-showcase-title">A Team of Passionate Innovators</h2>
+                <p className="about-showcase-text">
+                  Founded in 2020, Frame Syndicate has grown from a small startup to a global IT solutions
+                  powerhouse. We are engineers, designers, and strategists who believe technology should
+                  empower businesses, not complicate them.
+                </p>
+                <p className="about-showcase-text">
+                  Our journey began with a simple idea: create technology solutions that truly make a difference.
+                  Since 2020, we have helped businesses transform their digital presence and achieve steady growth.
+                </p>
+                <ul className="about-showcase-list">
+                  {aboutPoints.map((point) => (
+                    <li key={point}>
+                      <i className="fas fa-circle" aria-hidden="true"></i>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="about-showcase-badges">
+                  {aboutHighlights.map((item) => (
+                    <div key={item.title} className="about-showcase-badge" data-reveal-item>
+                      <span className="about-showcase-badge-icon" aria-hidden="true">
+                        <i className={item.icon}></i>
+                      </span>
+                      <div>
+                        <h4>{item.title}</h4>
+                        <p>{item.text}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
-            <div className="intro-image" data-reveal="scale-blur" data-reveal-item>
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600" alt="Our Team" />
-              <div className="image-accent"></div>
+              <div className="about-showcase-media" data-reveal="scale-blur" data-reveal-item>
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900" alt="Our Team" />
+                <div className="about-showcase-stat">
+                  <span className="about-showcase-stat-value">2020</span>
+                  <span className="about-showcase-stat-label">Founded In</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Mission & Vision */}
-      <section className="mission-section" ref={missionRef}>
-        <div className="container">
-          <div className="mission-grid">
-            <div className="mission-card">
-              <div className="mission-icon"><i className="fas fa-bullseye"></i></div>
-              <h3>Our Mission</h3>
-              <p>To empower businesses with innovative technology solutions that drive growth, efficiency, and competitive advantage in the digital age.</p>
-            </div>
-            <div className="mission-card">
-              <div className="mission-icon"><i className="fas fa-eye"></i></div>
-              <h3>Our Vision</h3>
-              <p>To be the world&apos;s most trusted technology partner, known for transforming complex challenges into elegant, impactful solutions.</p>
-            </div>
-            <div className="mission-card">
-              <div className="mission-icon"><i className="fas fa-heart"></i></div>
-              <h3>Our Values</h3>
-              <p>Innovation, integrity, collaboration, and excellence guide everything we do. We believe in building lasting partnerships, not just projects.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="team-section" ref={teamRef}>
+      <section className="about-pillars" ref={missionRef}>
         <div className="container">
           <div className="section-header center">
-            <span className="section-tag"><span className="tag-dot"></span> Meet The Experts</span>
-            <h2 className="section-title-large">Our Leadership Team</h2>
+            <span className="section-tag"><span className="tag-dot"></span> Our Purpose</span>
+            <h2 className="section-title-large">Mission, Vision, Values</h2>
           </div>
-          <div className="team-grid">
-            {team.map((member, i) => (
-              <div key={i} className="team-card">
-                <div className="team-image">
-                  <img src={member.image} alt={member.role} loading="lazy" />
-                  <div className="team-social">
-                    {member.socials.map((s, j) => (
-                      <a key={j} href="#"><i className={s.icon}></i></a>
-                    ))}
-                  </div>
+          <div className="about-pillars-grid">
+            {valuePillars.map((pillar) => (
+              <div key={pillar.title} className="about-pillar-card" data-reveal-item>
+                <div className="about-pillar-icon" aria-hidden="true">
+                  <i className={pillar.icon}></i>
                 </div>
-                <div className="team-info">
-                  <h4>{member.name}</h4>
-                  <span>{member.role}</span>
-                </div>
+                <h3>{pillar.title}</h3>
+                <p>{pillar.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="timeline-section" ref={timelineRef}>
+      {/* Leadership */}
+      <section className="about-leadership" ref={teamRef}>
+        <div className="container">
+          <div className="about-leadership-grid">
+            <div className="about-leadership-content" data-reveal-item>
+              <span className="section-tag"><span className="tag-dot"></span> Leadership</span>
+              <h2 className="section-title">Guided by Builders and Strategists</h2>
+              <p className="about-leadership-text">
+                Our leadership team blends technical depth with business clarity. We prioritize transparent
+                delivery, measurable impact, and long-term partnerships.
+              </p>
+              <Link to="/contact" className="btn btn-outline-dark">Connect with Us</Link>
+            </div>
+            <div className="about-leadership-cards">
+              {team.map((member, i) => {
+                const imageSrc = member.image || 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600'
+                return (
+                  <div key={i} className="about-leadership-card" data-reveal-item>
+                    <div className="about-leadership-media">
+                      <img src={imageSrc} alt={member.name} loading="lazy" />
+                    </div>
+                    <div className="about-leadership-body">
+                      <h4>{member.name}</h4>
+                      <span className="about-leadership-role">{member.role}</span>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Journey */}
+      <section className="about-journey" ref={timelineRef}>
         <div className="container">
           <div className="section-header center">
             <span className="section-tag"><span className="tag-dot"></span> Our Journey</span>
             <h2 className="section-title-large">Company Timeline</h2>
           </div>
-          <div className="timeline">
-            {timeline.map((item, i) => (
-              <div key={i} className="timeline-item" data-reveal="clip" data-reveal-item>
-                <div className="timeline-marker"></div>
-                <div className="timeline-content">
-                  <span className="timeline-year">{item.year}</span>
-                  <h4>{item.title}</h4>
-                  <p>{item.desc}</p>
-                </div>
+          <div className="about-journey-grid">
+            {timeline.map((item) => (
+              <div key={item.year} className="about-journey-card" data-reveal-item>
+                <span className="about-journey-year">{item.year}</span>
+                <h4>{item.title}</h4>
+                <p>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -164,18 +205,22 @@ export default function About() {
       </section>
 
       {/* Awards Section */}
-      <section className="awards-section" ref={awardsRef}>
+      <section className="about-awards" ref={awardsRef}>
         <div className="container">
           <div className="section-header center">
             <span className="section-tag"><span className="tag-dot"></span> Recognition</span>
             <h2 className="section-title-large">Awards &amp; Certifications</h2>
           </div>
-          <div className="awards-grid">
-            {awardsData.map((award, i) => (
-              <div key={i} className="award-card">
-                <i className={award.icon}></i>
-                <h4>{award.title}</h4>
-                <span>{award.sub}</span>
+          <div className="about-awards-grid">
+            {awardsData.map((award) => (
+              <div key={award.title} className="about-award-card" data-reveal-item>
+                <span className="about-award-icon" aria-hidden="true">
+                  <i className={award.icon}></i>
+                </span>
+                <div>
+                  <h4>{award.title}</h4>
+                  <p>{award.sub}</p>
+                </div>
               </div>
             ))}
           </div>

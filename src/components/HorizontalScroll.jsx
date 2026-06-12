@@ -57,6 +57,7 @@ export default function HorizontalScroll({
 
       // Store for cleanup
       track._hzTween = tween
+      ScrollTrigger.refresh()
     }, 100)
 
     return () => {
