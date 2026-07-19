@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
 import TestimonialSlider from '../components/TestimonialSlider'
+import { pageData } from '../content/pageData'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 const portfolioItems = [
@@ -31,6 +32,7 @@ const statsData = [
 ]
 
 export default function Portfolio() {
+  const page = pageData['/portfolio']
   const [activeFilter, setActiveFilter] = useState('all')
   const gridRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
   const ctaRef = useScrollReveal({ reveal: 'fade-up' })
@@ -74,7 +76,12 @@ export default function Portfolio() {
 
   return (
     <>
-      <PageHeader breadcrumbLabel="Portfolio" subtitle="Explore our portfolio of successful projects and digital transformations.">
+      <PageHeader
+        breadcrumbLabel="Portfolio"
+        subtitle="Explore our portfolio of successful projects and digital transformations."
+        author={page.author}
+        updatedAt={page.updatedAt}
+      >
         Our <span className="highlight">Work</span>
       </PageHeader>
 
@@ -150,6 +157,7 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
+
     </>
   )
 }

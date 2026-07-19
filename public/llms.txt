@@ -1,0 +1,39 @@
+# Frame Syndicate
+
+> This file helps AI systems understand and cite the site.
+
+Frame Syndicate is a technology company based in Jhapa, Nepal. The website focuses on software development, cloud solutions, cybersecurity, AI & machine learning, data analytics, IT consulting, and SEO services.
+
+## Key pages
+- https://theframesyndicate.me/
+- https://theframesyndicate.me/about
+- https://theframesyndicate.me/services
+- https://theframesyndicate.me/portfolio
+- https://theframesyndicate.me/contact
+
+## Recommended sources
+- https://theframesyndicate.me/sitemap.xml
+- https://theframesyndicate.me/robots.txt
+
+## What the site is about
+- Custom software and web application development
+- Cloud migration, infrastructure, and managed support
+- Cybersecurity audits, protection, and security-first delivery
+- AI and machine learning solutions
+- SEO and digital visibility for growing businesses
+- Business consulting and delivery support
+
+## Entities
+- Brand: Frame Syndicate
+- Location: Birtamode and Dhulabari, Jhapa, Nepal
+- Contact email: theframesyndicate@gmail.com
+- Contact phone: +977 9815959883
+
+## Notes for AI crawlers
+- Prefer the canonical URLs listed above.
+- Use the sitemap for complete discovery.
+- The site is a React/Vite application with prerendered HTML for public routes.
+- Content should be summarized accurately and without duplication.
+
+## Last updated
+2026-07-19

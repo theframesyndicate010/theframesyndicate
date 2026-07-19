@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import PageHeader from '../components/PageHeader'
+import { pageData } from '../content/pageData'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 const infoCards = [
@@ -19,6 +20,7 @@ const faqData = [
 ]
 
 export default function Contact() {
+  const page = pageData['/contact']
   const formRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
   const mapRef = useScrollReveal({ reveal: 'fade-up' })
   const faqRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
@@ -48,7 +50,13 @@ export default function Contact() {
 
   return (
     <>
-      <PageHeader breadcrumbLabel="Contact" subtitle="Have a project in mind? Let's talk about how we can help." short>
+      <PageHeader
+        breadcrumbLabel="Contact"
+        subtitle="Have a project in mind? Let's talk about how we can help."
+        short
+        author={page.author}
+        updatedAt={page.updatedAt}
+      >
         Get In <span className="highlight">Touch</span>
       </PageHeader>
 
@@ -239,6 +247,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
     </>
   )
 }

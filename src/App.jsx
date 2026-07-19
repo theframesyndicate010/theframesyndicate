@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import CursorFollower from './components/CursorFollower'
 import ScrollProgress from './components/ScrollProgress'
 import FloatingCTA from './components/FloatingCTA'
+import SeoManager from './components/SeoManager'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
@@ -23,6 +24,7 @@ function App() {
   return (
     <>
       <ScrollToTop />
+      <SeoManager />
       <CursorFollower />
       <ScrollProgress />
       <Navbar />

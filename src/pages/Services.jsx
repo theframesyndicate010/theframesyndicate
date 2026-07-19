@@ -1,6 +1,7 @@
 import { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
+import { pageData } from '../content/pageData'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 const serviceDetails = [
@@ -71,6 +72,7 @@ const processSteps = [
 ]
 
 export default function Services() {
+  const page = pageData['/services']
   const overviewRef = useScrollReveal({ reveal: 'fade-up' })
   const techRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
   const processRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
@@ -78,7 +80,12 @@ export default function Services() {
 
   return (
     <>
-      <PageHeader breadcrumbLabel="Services" subtitle="Comprehensive IT solutions tailored to transform your business and drive growth.">
+      <PageHeader
+        breadcrumbLabel="Services"
+        subtitle="Comprehensive IT solutions tailored to transform your business and drive growth."
+        author={page.author}
+        updatedAt={page.updatedAt}
+      >
         Our <span className="highlight">Services</span>
       </PageHeader>
 
@@ -175,6 +182,7 @@ export default function Services() {
           </div>
         </div>
       </section>
+
     </>
   )
 }

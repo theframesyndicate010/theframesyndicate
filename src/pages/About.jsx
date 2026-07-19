@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
+import { pageData } from '../content/pageData'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 const team = [
@@ -67,6 +68,7 @@ const awardsData = [
 ]
 
 export default function About() {
+  const page = pageData['/about']
   const introRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
   const missionRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
   const teamRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
@@ -76,7 +78,12 @@ export default function About() {
 
   return (
     <>
-      <PageHeader breadcrumbLabel="About Us" subtitle="Discover the story behind Frame Syndicate and our mission to transform businesses through technology.">
+      <PageHeader
+        breadcrumbLabel="About Us"
+        subtitle="Discover the story behind Frame Syndicate and our mission to transform businesses through technology."
+        author={page.author}
+        updatedAt={page.updatedAt}
+      >
         About <span className="highlight">Us</span>
       </PageHeader>
 
@@ -241,6 +248,7 @@ export default function About() {
           </div>
         </div>
       </section>
+
     </>
   )
 }

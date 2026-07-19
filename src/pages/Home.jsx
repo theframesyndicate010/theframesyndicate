@@ -5,6 +5,7 @@ import TestimonialSlider from '../components/TestimonialSlider'
 import TrustSection from '../components/TrustSection'
 import HorizontalScroll from '../components/HorizontalScroll'
 import PortfolioStack from '../components/PortfolioStack'
+import { pageData } from '../content/pageData'
 
 
 const aboutPoints = [
@@ -43,6 +44,7 @@ const statsData = [
 ]
 
 export default function Home() {
+  const page = pageData['/']
   const heroRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
   const aboutRef = useScrollReveal({ reveal: 'fade-up', stagger: true })
 
